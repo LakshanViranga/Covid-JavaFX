@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="773.0" prefWidth="648.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="covid.controller.UserDashController">
+   <children>
+      <DatePicker fx:id="date_pick" layoutX="48.0" layoutY="89.0" prefHeight="36.0" prefWidth="197.0" />
+      <Pane layoutX="48.0" layoutY="240.0" prefHeight="397.0" prefWidth="559.0" style="-fx-background-color: #82e7ab;">
+         <effect>
+            <DropShadow color="#000000b1" offsetX="3.0" offsetY="3.0" />
+         </effect>
+         <children>
+            <Label layoutX="14.0" layoutY="59.0" prefHeight="36.0" prefWidth="151.0" text="Total Cases">
+               <font>
+                  <Font name="Arial Black" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="130.0" prefHeight="36.0" prefWidth="151.0" text="Total Deaths">
+               <font>
+                  <Font name="Arial Black" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="206.0" prefHeight="36.0" prefWidth="151.0" text="New Cases">
+               <font>
+                  <Font name="Arial Black" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txt_total_case" layoutX="193.0" layoutY="61.0" prefHeight="29.0" prefWidth="266.0">
+               <font>
+                  <Font name="Times New Roman" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt_total_death" editable="false" layoutX="193.0" layoutY="132.0" prefHeight="29.0" prefWidth="266.0">
+               <font>
+                  <Font name="Times New Roman" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txt_new_cases" editable="false" layoutX="193.0" layoutY="208.0" prefHeight="29.0" prefWidth="266.0">
+               <font>
+                  <Font name="Times New Roman Bold" size="16.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btn_save_snap" onAction="#save_snap" layoutX="129.0" layoutY="290.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="256.0" text="Save">
+               <font>
+                  <Font name="Arial Black" size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <MenuBar layoutY="1.0" prefHeight="36.0" prefWidth="648.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="View">
+            <items>
+              <MenuItem fx:id="graphic" onAction="#graphic" mnemonicParsing="false" text="Graphical View" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+       <ComboBox fx:id="select_country" layoutX="342.0" layoutY="89.0" prefHeight="36.0" prefWidth="266.0" promptText="Select Country" >
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="AK"/>
+                   <String fx:value="CA"/>
+                   <String fx:value="MN"/>
+               </FXCollections>
+           </items>
+       </ComboBox>
+      <Label layoutX="254.0" layoutY="89.0" prefHeight="36.0" prefWidth="89.0" text="Country">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_save" layoutX="196.0" layoutY="163.0" mnemonicParsing="false" onAction="#search" prefHeight="45.0" prefWidth="256.0" text="Search">
+         <font>
+            <Font name="Arial Black" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
