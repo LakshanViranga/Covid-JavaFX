@@ -1,5 +1,6 @@
 package covid.controller;
 
+import covid.Main;
 import covid.dao.LoginDao;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -8,13 +9,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class LoginController {
+public class LoginController  {
+
+    public Pane pane;
+
+    public Pane registerPane;
 
     @FXML
     private TextField txt_user;
@@ -33,19 +40,34 @@ public class LoginController {
         LoginDao loginDao = new LoginDao();
 
         try {
-            boolean flag = loginDao.validate(user_name,password);
+            if(user_name.equalsIgnoreCase("admin")){
+                boolean flag = loginDao.validate(user_name,password);
 
-            if(flag == true){
-                infoBox("Login Successful!", null, "Failed");
+                if(flag == true){
+                    infoBox("Login Successful!", null, "Covid");
 
-                Parent newRoot = FXMLLoader.load(getClass().getResource("../view/user_dash.fxml"));
-                Stage primaryStage = new Stage();
-                primaryStage.setTitle("Covid-19 Update");
-                primaryStage.setScene(new Scene(newRoot,650,775));
-                primaryStage.show();
+                    Parent newRoot = FXMLLoader.load(getClass().getResource("../view/admin_dash.fxml"));
+                    Scene loginScene = new Scene(newRoot);
+                    Stage loginStage = (Stage) pane.getScene().getWindow();
+                    loginStage.setScene(loginScene);
+                }else{
+                    infoBox("Please enter correct Email and Password", null, "Failed");
+                }
             }else{
-                infoBox("Please enter correct Email and Password", null, "Failed");
+                boolean flag = loginDao.validate(user_name,password);
+
+                if(flag == true){
+                    infoBox("Login Successful!", null, "Failed");
+
+                    Parent newRoot = FXMLLoader.load(getClass().getResource("../view/user_dash.fxml"));
+                    Scene loginScene = new Scene(newRoot);
+                    Stage loginStage = (Stage) pane.getScene().getWindow();
+                    loginStage.setScene(loginScene);
+                }else{
+                    infoBox("Please enter correct Email and Password", null, "Failed");
+                }
             }
+
         } catch (SQLException | IOException throwables) {
             throwables.printStackTrace();
         }
@@ -62,11 +84,9 @@ public class LoginController {
     public void register(ActionEvent actionEvent) throws IOException {
         System.out.println("Clicked");
         Parent newRoot = FXMLLoader.load(getClass().getResource("../view/register.fxml"));
-        Stage primaryStage = new Stage();
-        primaryStage.setTitle("Covid-19 Update");
-        primaryStage.setScene(new Scene(newRoot,650,475));
-        primaryStage.show();
+        Scene registerScene = new Scene(newRoot);
+        Stage registerStage = (Stage) pane.getScene().getWindow();
+        registerStage.setScene(registerScene);
 
-        primaryStage.setOnCloseRequest(event -> Platform.exit());
     }
 }

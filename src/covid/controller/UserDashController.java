@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,6 +15,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class UserDashController {
+
+    public Pane userPane;
 
     @FXML
     private Button btn_save;
@@ -42,12 +45,15 @@ public class UserDashController {
     @FXML
     private void graphic() throws IOException {
         Parent newRoot = FXMLLoader.load(getClass().getResource("../view/data_view.fxml"));
-        Stage primaryStage = new Stage();
-        primaryStage.setTitle("Covid-19 Update");
-        primaryStage.setScene(new Scene(newRoot,950,700));
-        primaryStage.show();
+        Scene graphic = new Scene(newRoot);
+        Stage graphicStage = (Stage) userPane.getScene().getWindow();
+        graphicStage.setScene(graphic);
     }
 
+    @FXML
+    private void edit() throws IOException{
+        
+    }
 
     public void search() throws IOException {
 

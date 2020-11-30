@@ -14,9 +14,13 @@
 
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="773.0" prefWidth="648.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="covid.controller.UserDashController">
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<Pane fx:id="userPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="773.0" prefWidth="648.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="covid.controller.UserDashController">
    <children>
-      <DatePicker fx:id="date_pick" layoutX="48.0" layoutY="89.0" prefHeight="36.0" prefWidth="197.0" />
+      <JFXDatePicker fx:id="date_pick" layoutX="48.0" layoutY="89.0" prefHeight="36.0" prefWidth="197.0" />
       <Pane layoutX="48.0" layoutY="240.0" prefHeight="397.0" prefWidth="559.0" style="-fx-background-color: #82e7ab;">
          <effect>
             <DropShadow color="#000000b1" offsetX="3.0" offsetY="3.0" />
@@ -37,26 +41,26 @@
                   <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txt_total_case" layoutX="193.0" layoutY="61.0" prefHeight="29.0" prefWidth="266.0">
+            <JFXTextField fx:id="txt_total_case" layoutX="193.0" layoutY="61.0" prefHeight="29.0" prefWidth="266.0">
                <font>
                   <Font name="Times New Roman" size="16.0" />
                </font>
-            </TextField>
-            <TextField fx:id="txt_total_death" editable="false" layoutX="193.0" layoutY="132.0" prefHeight="29.0" prefWidth="266.0">
+            </JFXTextField>
+            <JFXTextField fx:id="txt_total_death" editable="false" layoutX="193.0" layoutY="132.0" prefHeight="29.0" prefWidth="266.0">
                <font>
                   <Font name="Times New Roman" size="16.0" />
                </font>
-            </TextField>
-            <TextField fx:id="txt_new_cases" editable="false" layoutX="193.0" layoutY="208.0" prefHeight="29.0" prefWidth="266.0">
+            </JFXTextField>
+            <JFXTextField fx:id="txt_new_cases" editable="false" layoutX="193.0" layoutY="208.0" prefHeight="29.0" prefWidth="266.0">
                <font>
                   <Font name="Times New Roman Bold" size="16.0" />
                </font>
-            </TextField>
-            <Button fx:id="btn_save_snap" onAction="#save_snap" layoutX="129.0" layoutY="290.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="256.0" text="Save">
+            </JFXTextField>
+            <JFXButton fx:id="btn_save_snap" onAction="#save_snap" layoutX="129.0" layoutY="290.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="256.0" text="Save">
                <font>
                   <Font name="Arial Black" size="24.0" />
                </font>
-            </Button>
+            </JFXButton>
          </children>
       </Pane>
       <MenuBar layoutY="1.0" prefHeight="36.0" prefWidth="648.0">
@@ -78,7 +82,7 @@
           </Menu>
         </menus>
       </MenuBar>
-       <ComboBox fx:id="select_country" layoutX="342.0" layoutY="89.0" prefHeight="36.0" prefWidth="266.0" promptText="Select Country" >
+       <JFXComboBox fx:id="select_country" layoutX="342.0" layoutY="89.0" prefHeight="36.0" prefWidth="266.0" promptText="Select Country" >
            <items>
                <FXCollections fx:factory="observableArrayList">
                    <String fx:value="AK"/>
@@ -86,16 +90,16 @@
                    <String fx:value="MN"/>
                </FXCollections>
            </items>
-       </ComboBox>
+       </JFXComboBox>
       <Label layoutX="254.0" layoutY="89.0" prefHeight="36.0" prefWidth="89.0" text="Country">
          <font>
             <Font name="Arial Black" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btn_save" layoutX="196.0" layoutY="163.0" mnemonicParsing="false" onAction="#search" prefHeight="45.0" prefWidth="256.0" text="Search">
+      <JFXButton fx:id="btn_save" layoutX="196.0" layoutY="163.0" mnemonicParsing="false" onAction="#search" prefHeight="45.0" prefWidth="256.0" text="Search">
          <font>
             <Font name="Arial Black" size="24.0" />
          </font>
-      </Button>
+      </JFXButton>
    </children>
 </Pane>

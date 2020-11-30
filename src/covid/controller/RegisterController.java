@@ -11,9 +11,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class RegisterController {
+
+    public Pane registerPane;
     @FXML
     private TextField txt_user;
 
@@ -29,7 +34,7 @@ public class RegisterController {
     @FXML
     private Button btn_login;
 
-    public void Register(ActionEvent actionEvent){
+    public void Register(ActionEvent actionEvent) throws IOException {
         String user = txt_user.getText();
         String password = txt_password.getText();
         String email = txt_email.getText();
@@ -40,6 +45,10 @@ public class RegisterController {
 
         if(flag ==true){
             infoBox("Registration Successful",null,"Registration");
+            Parent newRoot = FXMLLoader.load(getClass().getResource("../view/login.fxml"));
+            Scene loginScene = new Scene(newRoot);
+            Stage loginStage = (Stage) registerPane.getScene().getWindow();
+            loginStage.setScene(loginScene);
         }else {
             infoBox("Register Unsuccessful",null,"Registration");
         }
@@ -56,11 +65,8 @@ public class RegisterController {
 
     public void login(ActionEvent actionEvent) throws Exception{
         Parent newRoot = FXMLLoader.load(getClass().getResource("../view/login.fxml"));
-        Stage primaryStage = new Stage();
-        primaryStage.setTitle("Covid-19 Update");
-        primaryStage.setScene(new Scene(newRoot,650,475));
-        primaryStage.show();
-
-        primaryStage.setOnCloseRequest(event -> Platform.exit());
+        Scene loginScene = new Scene(newRoot);
+        Stage loginStage = (Stage) registerPane.getScene().getWindow();
+        loginStage.setScene(loginScene);
     }
 }

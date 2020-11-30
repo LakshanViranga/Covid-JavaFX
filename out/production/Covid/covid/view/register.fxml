@@ -16,7 +16,10 @@
 <?import javafx.scene.shape.CubicCurve?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="665.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="covid.controller.RegisterController">
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXButton?>
+<Pane fx:id="registerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="665.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="covid.controller.RegisterController">
    <children>
       <CubicCurve controlX1="358.7091064453125" controlX2="133.20001220703125" controlY1="-207.0" controlY2="299.5999755859375" endX="-334.0" endY="268.0000305175781" layoutX="334.0" layoutY="206.0" startX="-334.0" startY="-207.0" stroke="BLACK" strokeWidth="0.0">
          <fill>
@@ -40,7 +43,7 @@
                         <Font name="Arial Black" size="30.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txt_user" layoutX="113.0" layoutY="86.0" prefHeight="32.0" prefWidth="193.0" promptText="user name">
+                  <JFXTextField fx:id="txt_user" layoutX="113.0" layoutY="86.0" prefHeight="32.0" prefWidth="193.0" promptText="user name">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -50,15 +53,15 @@
                      <cursor>
                         <Cursor fx:constant="DISAPPEAR" />
                      </cursor>
-                  </TextField>
-                  <PasswordField fx:id="txt_password" layoutX="113.0" layoutY="188.0" prefHeight="31.0" prefWidth="194.0" promptText="Password">
+                  </JFXTextField>
+                  <JFXPasswordField fx:id="txt_password" layoutX="113.0" layoutY="188.0" prefHeight="31.0" prefWidth="194.0" promptText="Password">
                      <font>
                         <Font size="15.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="DISAPPEAR" />
                      </cursor>
-                  </PasswordField>
+                  </JFXPasswordField>
                   <ImageView fitHeight="42.0" fitWidth="34.0" layoutX="75.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/s.png" />
@@ -69,12 +72,12 @@
                         <Image url="@../img/password.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="btn_register" layoutX="116.0" layoutY="232.0" mnemonicParsing="false" onAction="#Register" prefHeight="42.0" prefWidth="186.0" style="-fx-background-color: #05eb0c;" text="SIGN UP">
+                  <JFXButton fx:id="btn_register" layoutX="116.0" layoutY="232.0" mnemonicParsing="false" onAction="#Register" prefHeight="42.0" prefWidth="186.0" style="-fx-background-color: #05eb0c;" text="SIGN UP">
                      <font>
                         <Font name="Arial Black" size="19.0" />
                      </font>
-                  </Button>
-                  <TextField fx:id="txt_email" layoutX="113.0" layoutY="136.0" prefHeight="32.0" prefWidth="193.0" promptText="email">
+                  </JFXButton>
+                  <JFXTextField fx:id="txt_email" layoutX="113.0" layoutY="136.0" prefHeight="32.0" prefWidth="193.0" promptText="email">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -84,13 +87,13 @@
                      <cursor>
                         <Cursor fx:constant="DISAPPEAR" />
                      </cursor>
-                  </TextField>
+                  </JFXTextField>
                   <ImageView fitHeight="42.0" fitWidth="34.0" layoutX="75.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/s.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="btn_login" layoutX="116.0" layoutY="291.0" mnemonicParsing="false" onAction="#login" prefHeight="24.0" prefWidth="194.0" text="Already account? Sign in" />
+                  <JFXButton fx:id="btn_login" layoutX="116.0" layoutY="291.0" mnemonicParsing="false" onAction="#login" prefHeight="24.0" prefWidth="194.0" text="Already account? Sign in" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="360.0" prefHeight="358.0" prefWidth="193.0">
